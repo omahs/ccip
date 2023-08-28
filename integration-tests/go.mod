@@ -2,9 +2,6 @@ module github.com/smartcontractkit/ccip/integration-tests
 
 go 1.20
 
-// Make sure we're working with the latest chainlink libs
-replace github.com/smartcontractkit/chainlink/v2 => ../
-
 require (
 	github.com/K-Phoen/grabana v0.21.17
 	github.com/cli/go-gh/v2 v2.0.0
@@ -23,7 +20,7 @@ require (
 	github.com/smartcontractkit/chainlink-env v0.36.0
 	github.com/smartcontractkit/chainlink-testing-framework v1.16.1-0.20230825001100-85c8b45d8005
 	github.com/smartcontractkit/chainlink/integration-tests v0.0.0-20230814135816-51632e392c47
-	github.com/smartcontractkit/chainlink/v2 v2.4.0
+	github.com/smartcontractkit/chainlink/v2 v2.0.0-00010101000000-000000000000
 	github.com/smartcontractkit/libocr v0.0.0-20230816220705-665e93233ae5
 	github.com/smartcontractkit/ocr2keepers v0.7.17
 	github.com/smartcontractkit/ocr2vrf v0.0.0-20230804151440-2f1eb1e20687
@@ -519,8 +516,9 @@ replace (
 	github.com/mwitkow/grpc-proxy => github.com/smartcontractkit/grpc-proxy v0.0.0-20230731113816-f1be6620749f
 
 	github.com/prometheus/prometheus => github.com/prometheus/prometheus v0.43.1-0.20230327151049-211ae4f1f0a2
-	github.com/sercand/kuberesolver v2.4.0+incompatible => github.com/sercand/kuberesolver/v5 v5.1.0
+
 	github.com/smartcontractkit/chainlink/integration-tests => ../integration-tests
+	github.com/smartcontractkit/chainlink/v2 => ../
 
 	k8s.io/api => k8s.io/api v0.25.11
 	k8s.io/client-go => k8s.io/client-go v0.25.11
