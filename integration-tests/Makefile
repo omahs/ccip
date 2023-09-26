@@ -189,3 +189,30 @@ run_test_with_local_image: build_docker_image
 	ARGS="$(args)" \
 	PRODUCT=$(product) 	\
 	./scripts/run_product_tests
+
+.PHONY: check_my_vars
+check_my_vars:
+
+# make sure the CHAINLINK_ENV_USER is set
+ifeq ($(CHAINLINK_ENV_USER), )
+	@echo "Please set the CHAINLINK_ENV_USER variable in your .env file"
+endif
+
+ifeq ($(TEST_SUITE), )
+	@echo "Please set the TEST_SUITE variable in your .env file"
+endif
+
+# ensure CHAINLINK_IMAGE is set
+ifeq ($(CHAINLINK_IMAGE), )
+	@echo "Please set the CHAINLINK_IMAGE variable in your .env file"
+endif
+
+# ensure CHAINLINK_VERSION is set
+ifeq ($(CHAINLINK_VERSION), )
+	@echo "Please set the CHAINLINK_VERSION variable in your .env file"
+endif
+
+.PHONY: get_my_k8s
+get_my_k8s:
+	kubectl get namespaces --selector=owner=$(CHAINLINK_ENV_USER)
+
